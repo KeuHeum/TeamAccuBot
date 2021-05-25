@@ -10,23 +10,6 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from twilio.rest import Client
-#
-#
-#안돼요!!!! 왜 다운이 안되지?? 뭐지??
-#에러로그도 안뜨는데..
-#크흠씨... nodemon이 켜져있는 터미널에 pip를 치시면 어캅니까악 새로 터미널 열어서 하셔야죠!
-#py -m pip install <모듈명> 으로 하심 되요.
-#실행시킬땐 py <파일명>.py 하심 되구, 지금 모듈은 다 깔아놓은 상태인데 오류있어요! 콘솔창은 지금 떠있는거 쓰심 됩니당
-#
-#새로 터미널을 열 수 있다고요????????????????????????????????????
-#오류는 해결 했어요.. 감사합니다!!!!!!!
-#크흠님... 아큐야 티엠아이
-#
-####이거 본사람 바부(크흠제외) ? <- 크흠 """ㅁㅣ"""포함? ㄴㄴ 다 포함
-#아큐야 안녕 코드도 겁나 복잡해서 바꿨슴니당
-#감삼당
-
-
 
 INTENTS = discord.Intents.all()
 client = discord.Client(intents=INTENTS)
@@ -87,16 +70,7 @@ hello = [
     "안녕하신가요!!!!!",
     "¿"
 ]
-Eunwoo = [
-    "ㅡㅜ",
-    "으우",
-    "으누",
-    "누누",
-    "dmsn",
-    "snsn",
-    "dmsdn",
-    "은우"
-]
+
 ################################봇이 준비됨################################
 @client.event
 async def on_ready():
@@ -121,31 +95,10 @@ async def presence_loop():
 ################################메인################################
 @client.event
 async def on_message(message):
-    for i in Eunwoo:
-        if i in message.content and message.author.id != 837133441124139039:
-            await message.delete()
-            author = await client.get_user(int(604983644733440001)).create_dm()
-            await author.send(message.author)
-            await author.send(message.content)
-            return None
-
     if message.author.id == 604983644733440001 and message.content == "아큐야 강제종료":
         await message.channel.send("강제종료 완료")
         exit()
         
-    elif message.content.startswith("아큐야 긴급"):
-        for i in staff:
-            if int(i) == message.author.id:
-                account_sid = 'ACbb53e856fba09bd091db6d5168cc765f'
-                auth_token = '06a45cf2f9547eaf401a16868e367e4c'
-                client1 = Client(account_sid, auth_token)
-                client1.messages.create(
-                    to="+821088398124", 
-                    from_="+12015146566",
-                    body=f"{message.author}\n'{message.content[6:]}'")
-                await message.add_reaction("✅")
-                return None
-                
     elif message.author.bot:
         return None
 
