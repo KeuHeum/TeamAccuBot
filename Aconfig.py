@@ -1,5 +1,5 @@
 config = {
-    "token" : "ODM3MTMzNDQxMTI0MTM5MDM5.YIoHRQ.gudNg4uT--84zzYKiR0Ko0SAfGU",
+    "token" : "yourtoken",
     "color" : 0x86E57F,
     "error" : 0xFF0000,
     "nice" : 0xABF200
